@@ -1,0 +1,40 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  src:
+    "()": colorlog.ColoredFormatter
+    format: '%(asctime)s | %(log_color)s%(levelname)s%(reset)s | %(cyan)s[File "%(relativePath)s", line %(lineno)d] %(funcName)s%(reset)s %(message)s'
+    datefmt: "%Y-%m-%d %H:%M:%S"
+  default:
+    "()": colorlog.ColoredFormatter
+    format: '%(asctime)s | %(log_color)s%(levelname)s%(reset)s | [%(name)s] %(message)s'
+    datefmt: "%Y-%m-%d %H:%M:%S"
+handlers:
+  src:
+    formatter: src
+    class: logging.StreamHandler
+    stream: ext://sys.stdout
+  default:
+    formatter: default
+    class: logging.StreamHandler
+    stream: ext://sys.stdout
+loggers:
+  src:
+    level: INFO
+    handlers:
+      - src
+    propagate: no
+  uvicorn.error:
+    level: INFO
+    handlers:
+      - default
+    propagate: no
+  uvicorn.access:
+    level: INFO
+    handlers:
+      - default
+    propagate: no
+  passlib:
+    level: ERROR
+  httpx:
+    level: WARNING

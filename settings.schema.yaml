@@ -1,0 +1,44 @@
+$schema: https://json-schema.org/draft-07/schema
+$defs:
+  AISettings:
+    additionalProperties: false
+    properties:
+      openai_base_url:
+        default: https://openrouter.ai/api/v1
+        description: Base URL for OpenAI-compatible API
+        title: Openai Base Url
+        type: string
+      openai_api_key:
+        description: API key for OpenAI-compatible API
+        format: password
+        title: Openai Api Key
+        type: string
+        writeOnly: true
+      openai_model:
+        default: google/gemini-2.0-flash-001
+        description: Model name for OpenAI-compatible API
+        title: Openai Model
+        type: string
+    required:
+    - openai_api_key
+    title: AISettings
+    type: object
+additionalProperties: false
+description: Settings for the application.
+properties:
+  $schema:
+    default: null
+    title: $Schema
+    type: string
+  ai:
+    $ref: '#/$defs/AISettings'
+    description: AI settings
+  parsing_pipeline_import:
+    description: Parsing pipeline for the application
+    title: Parsing Pipeline Import
+    type: string
+required:
+- ai
+- parsing_pipeline_import
+title: Settings
+type: object
