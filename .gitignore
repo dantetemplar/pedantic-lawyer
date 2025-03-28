@@ -1,6 +1,5 @@
-Нормативные акты*
-*.docx
-*.rtf
+settings.yaml
+Критерии для ИИ.csv
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,pycharm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,pycharm+all

@@ -45,10 +45,10 @@ def ensure_pre_commit_hooks():
     """
     Ensure `pre-commit` hooks are installed.
     """
-    PRE_COMMIT_CONFIG = BASE_DIR.parent.parent / ".pre-commit-config.yaml"
+    PRE_COMMIT_CONFIG = BASE_DIR / ".pre-commit-config.yaml"
 
     def is_pre_commit_installed():
-        pre_commit_hook = BASE_DIR.parent.parent / ".git" / "hooks" / "pre-commit"
+        pre_commit_hook = BASE_DIR / ".git" / "hooks" / "pre-commit"
         return pre_commit_hook.exists() and os.access(pre_commit_hook, os.X_OK)
 
     if not PRE_COMMIT_CONFIG.exists():

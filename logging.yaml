@@ -20,7 +20,7 @@ handlers:
     stream: ext://sys.stdout
 loggers:
   src:
-    level: INFO
+    level: DEBUG
     handlers:
       - src
     propagate: no

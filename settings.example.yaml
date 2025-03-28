@@ -1,0 +1,4 @@
+$schema: "./settings.schema.yaml"
+ai:
+  openai_base_url: https://openrouter.ai/api/v1
+  openai_api_key: null

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, SecretStr, ImportString
+from pydantic import BaseModel, ConfigDict, Field, SecretStr
 
 
 class SettingBaseModel(BaseModel):
@@ -13,7 +13,7 @@ class AISettings(SettingBaseModel):
     "Base URL for OpenAI-compatible API"
     openai_api_key: SecretStr
     "API key for OpenAI-compatible API"
-    openai_model: str = "google/gemini-2.0-flash-001"
+    openai_model: str = "openai/gpt-4o"
     "Model name for OpenAI-compatible API"
 
 
@@ -23,8 +23,6 @@ class Settings(SettingBaseModel):
     schema_: str = Field(None, alias="$schema")
     ai: AISettings
     "AI settings"
-    parsing_pipeline: ImportString
-    "Parsing pipeline for the application"
 
     @classmethod
     def from_yaml(cls, path: Path) -> "Settings":
@@ -36,5 +34,8 @@ class Settings(SettingBaseModel):
     @classmethod
     def save_schema(cls, path: Path) -> None:
         with open(path, "w") as f:
-            schema = {"$schema": "https://json-schema.org/draft-07/schema", **cls.model_json_schema()}
+            schema = {
+                "$schema": "https://json-schema.org/draft-07/schema",
+                **cls.model_json_schema(),
+            }
             yaml.dump(schema, f, sort_keys=False)

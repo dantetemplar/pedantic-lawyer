@@ -4,14 +4,19 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
-    "charset-normalizer>=3.4.1",
     "colorlog>=6.9.0",
-    "ftfy>=6.3.1",
-    "markitdown-rtf-plugin",
+    "diff-match-patch>=20241021",
+    "markitdown-rtf-plugin>=0.1.0",
     "markitdown[all]>=0.1.1",
-    "mbstrdecoder>=1.1.4",
+    "openai>=1.69.0",
     "pydantic>=2.11.0",
     "pyyaml>=6.0.2",
-    "spire-doc>=13.3.7",
-    "striprtf>=0.0.29",
+    "streamlit>=1.44.0",
+    "types-pyyaml>=6.0.12.20250326",
 ]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+lint.ignore = ["PLR"]
+lint.extend-select = ["I", "UP", "PL", "B", "Q"]

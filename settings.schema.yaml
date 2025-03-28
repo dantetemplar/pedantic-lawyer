@@ -15,7 +15,7 @@ $defs:
         type: string
         writeOnly: true
       openai_model:
-        default: google/gemini-2.0-flash-001
+        default: openai/gpt-4o
         description: Model name for OpenAI-compatible API
         title: Openai Model
         type: string
@@ -33,12 +33,7 @@ properties:
   ai:
     $ref: '#/$defs/AISettings'
     description: AI settings
-  parsing_pipeline_import:
-    description: Parsing pipeline for the application
-    title: Parsing Pipeline Import
-    type: string
 required:
 - ai
-- parsing_pipeline_import
 title: Settings
 type: object
