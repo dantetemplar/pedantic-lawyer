@@ -14,7 +14,5 @@ def parse(path: Path) -> str:
 
 
 if __name__ == "__main__":
-    example_path = Path(
-        "Нормативные акты/Закон ЯНАО от 04.06.2024 N 30-ЗАО  О внесении изменений в За.rtf"
-    )
+    example_path = Path("Нормативные акты/Закон ЯНАО от 04.06.2024 N 30-ЗАО  О внесении изменений в За.rtf")
     print(parse(example_path))

@@ -75,3 +75,7 @@ def ensure_pre_commit_hooks():
 def prepare():
     ensure_settings_file()
     ensure_pre_commit_hooks()
+
+
+if __name__ == "__main__":
+    prepare()

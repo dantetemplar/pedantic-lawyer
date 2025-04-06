@@ -15,6 +15,9 @@ class AISettings(SettingBaseModel):
     "API key for OpenAI-compatible API"
     openai_model: str = "openai/gpt-4o"
     "Model name for OpenAI-compatible API"
+    temperature: float = 0.25
+    "Temperature setting for OpenAI-compatible API"
+    use_judge: bool = True  # Whether to use self-judging stage
 
 
 class Settings(SettingBaseModel):

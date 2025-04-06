@@ -11,9 +11,9 @@
    ```bash
    uv sync
    ```
-3. Скопировать файл `settings.example.yaml` в `settings.yaml` и настроить его под свои нужды.
+3. Запустить скрипт-подготовки (следуйте инструкциям в терминале):
    ```bash
-   cp settings.example.yaml settings.yaml
+   uv run python src/prepare.py
    ```
 4. Отредактируйте файл `settings.yaml` и добавьте ваш API ключ [OpenRouter](https://openrouter.ai/):
     ```yaml

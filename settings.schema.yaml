@@ -19,6 +19,15 @@ $defs:
         description: Model name for OpenAI-compatible API
         title: Openai Model
         type: string
+      temperature:
+        default: 0.25
+        description: Temperature setting for OpenAI-compatible API
+        title: Temperature
+        type: number
+      use_judge:
+        default: true
+        title: Use Judge
+        type: boolean
     required:
     - openai_api_key
     title: AISettings
