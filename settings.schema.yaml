@@ -26,7 +26,13 @@ $defs:
         type: number
       use_judge:
         default: true
+        description: Whether to use self-judging stage
         title: Use Judge
+        type: boolean
+      use_manual_hints:
+        default: true
+        description: Whether to include manual check hints in analysis
+        title: Use Manual Hints
         type: boolean
     required:
     - openai_api_key

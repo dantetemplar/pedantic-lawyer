@@ -17,7 +17,10 @@ class AISettings(SettingBaseModel):
     "Model name for OpenAI-compatible API"
     temperature: float = 0.25
     "Temperature setting for OpenAI-compatible API"
-    use_judge: bool = True  # Whether to use self-judging stage
+    use_judge: bool = True
+    "Whether to use self-judging stage"
+    use_manual_hints: bool = True
+    "Whether to include manual check hints in analysis"
 
 
 class Settings(SettingBaseModel):

@@ -236,8 +236,12 @@ async def analyze_document(document_text: str) -> dict[str, Any]:
     logger.info(f"Analyzing document with model: {settings.ai.openai_model}")
     logger.info(f"Document length: {len(document_text)} characters")
 
-    # Generate hints from manual checks
-    hints = generate_manual_check_hints(document_text)
+    # Generate hints from manual checks if enabled
+    if settings.ai.use_manual_hints:
+        hints = generate_manual_check_hints(document_text)
+    else:
+        logger.info("Manual check hints generation skipped as per configuration")
+        hints = []
     hints_text = "\n".join(hints) if hints else "No additional hints."
 
     system_prompt = prompts["system"]
